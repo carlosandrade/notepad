@@ -21,7 +21,9 @@ public class AboutFeature {
 
  static public AboutActions aboutActions = new AboutActions();
  static JMenuItem aboutMenuItem = aboutMenuItem = new JMenuItem("About Notepad");
- 
+
+    //Original code did not consider counting the amount of sub-menu itens,
+    //thus we did not consider adding any other feature to the help submenu.
     	static public void add() {
 		JMenu helpMenu   = new JMenu("Help");
 		helpMenu.setMnemonic('h');
