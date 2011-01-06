@@ -32,10 +32,12 @@ public class Notepad extends JFrame{
 	public Actions actions = new Actions(this);
         public AboutActions aboutActions = new AboutActions();
 
+           //Create a new menubar
+        static JMenuBar Menubar = new JMenuBar();
+
 	protected JMenuBar buildMenuBar() {
 
-                //Create a new menubar
-		JMenuBar Menubar = new JMenuBar();
+             
                 //Create file menu
 		JMenu fileMenu = buildFileMenu();
 
@@ -88,7 +90,11 @@ public class Notepad extends JFrame{
                  /*
                  * Operations related to the HELP SUB-MENU
                  */
-		Menubar.add(buildHelpMenu());
+
+                /*
+                 * Adiciona a Feature About ao Notepad
+                 */
+		AboutFeature.addTo(this);
 
                 
 		return Menubar;
@@ -111,23 +117,6 @@ public class Notepad extends JFrame{
 		formatMenu.setMnemonic('o');
 		return formatMenu;
 	}
-	protected JMenu buildHelpMenu() {
-		JMenu helpMenu   = new JMenu("Help");
-		helpMenu.setMnemonic('h');
-
-                /*About Feature */
-		JMenuItem aboutMenuItem = new JMenuItem("About Notepad", new ImageIcon(this.getClass().getResource("images/about.gif")));
-		aboutMenuItem.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent ae){
-				aboutActions.about();
-			}
-		});
-		helpMenu.add(aboutMenuItem);
-                
-                /* End of About Feature */
-
-		return helpMenu;
-	}
 	protected JToolBar buildToolBar() {
 		JToolBar toolBar = new JToolBar("Tool Bar");
 		return toolBar;
@@ -135,6 +124,7 @@ public class Notepad extends JFrame{
 	//Constructor of Notepad
 	public Notepad() {
 		super();
+                setJMenuBar(buildMenuBar());
 		//set the title for Notepad and set the size for it.
 		setTitle("Untitled - JAVA Notepad");
 		setSize(800,600);
