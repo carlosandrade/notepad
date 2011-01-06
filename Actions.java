@@ -9,6 +9,9 @@ import javax.swing.filechooser.*;
 
 /**
  *A PUBLIC CLASS FOR ACTIONS.JAVA
+ *
+ * Actions should be aware only of general Notepad actions, other feature related about actions should be
+ * encapsulated on their on classes. 
  */
 public class Actions {
 	Notepad n; //for using the object in the Notepad.java

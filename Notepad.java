@@ -14,6 +14,10 @@
  *@version# 2.0
  */
 
+/**
+ *
+ */
+
 //import the packages for using the classes in them into the program
 import java.awt.*;
 import java.awt.event.*;
@@ -29,25 +33,69 @@ public class Notepad extends JFrame{
         public AboutActions aboutActions = new AboutActions();
 
 	protected JMenuBar buildMenuBar() {
+
+                //Create a new menubar
 		JMenuBar Menubar = new JMenuBar();
+                //Create file menu
 		JMenu fileMenu = buildFileMenu();
+
+                /*
+                 * Operations related to the FILE SUB-MENU
+                 */
+
+                //If the file menu has at least one sub-item, add a separator to the end of the sub-itens list
 		if (fileMenu.getItemCount() > 0) fileMenu.addSeparator();
+
+                //Create exit sub-item to be added on the File Menu
 		JMenuItem exitMenuItem   = new JMenuItem("Exit");
+
+                //Add ctrl+f4 shortcut to the Exit Item
 		exitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, ActionEvent.CTRL_MASK));
+
+                //Uses Inner Anonymous class to add the exit action of a Notepad located at the Actions class in this package
 		exitMenuItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ae){
 				actions.exit();
 			}
 		});
+
+                //Add exit menu item to the file sub-menu at MenuBar
+
 		fileMenu.add(exitMenuItem); //, new ImageIcon(this.getClass().getResource("images/exit.gif"))));  -- exit.gif missing
+
+                //Add the Sub-menu of File to the main Menubar
 		Menubar.add(fileMenu);
+
+                 /*
+                 * Operations related to the EDIT SUB-MENU
+                 */
+
 		JMenu editMenu = buildEditMenu();
+
+                //Add the editMenu to the main MenuBar if it has at least one item
 		if (editMenu.getItemCount() > 0) Menubar.add(editMenu);
+
+                 /*
+                 * Operations related to the FORMAT SUB-MENU
+                 */
+
+
 		JMenu formatMenu = buildFormatMenu();
+
+                //Add the formatMenu to the main MenuBar if it has at least one item
 		if (formatMenu.getItemCount() > 0) Menubar.add(formatMenu);
+
+                 /*
+                 * Operations related to the HELP SUB-MENU
+                 */
 		Menubar.add(buildHelpMenu());
+
+                
 		return Menubar;
 	}
+        /*
+         * Creates a File menu on the menubar named 'File' with a shortcut 'f'
+         */
 	protected JMenu buildFileMenu() {
 		JMenu fileMenu   = new JMenu("File");
 		fileMenu.setMnemonic('f');
@@ -66,6 +114,8 @@ public class Notepad extends JFrame{
 	protected JMenu buildHelpMenu() {
 		JMenu helpMenu   = new JMenu("Help");
 		helpMenu.setMnemonic('h');
+
+                /*About Feature */
 		JMenuItem aboutMenuItem = new JMenuItem("About Notepad", new ImageIcon(this.getClass().getResource("images/about.gif")));
 		aboutMenuItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ae){
@@ -73,6 +123,9 @@ public class Notepad extends JFrame{
 			}
 		});
 		helpMenu.add(aboutMenuItem);
+                
+                /* End of About Feature */
+
 		return helpMenu;
 	}
 	protected JToolBar buildToolBar() {
@@ -96,7 +149,6 @@ public class Notepad extends JFrame{
 				actions.exit();
 			}
 		});
-                setJMenuBar(buildMenuBar());
 	}
 	//Main Method
 	public static void main(String[] args){
