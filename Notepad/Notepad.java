@@ -26,6 +26,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
 
 /**
  *A PUBLIC CLASS FOR NOTEPAD.JAVA
@@ -34,8 +35,11 @@ public class Notepad extends JFrame{
 	//for using the methods in these classes
 	private Actions actions = new Actions(this);
 
-           //Create a new menubar
+        //Create a new menubar - Mandatory Feature
         static private JMenuBar Menubar = new JMenuBar();
+
+        //Create a new textArea - Mandatory Feature
+        static private JTextArea textArea;
 
         static public  JMenuBar getNotepadMenuBar()
         {
@@ -127,6 +131,18 @@ public class Notepad extends JFrame{
 		JToolBar toolBar = new JToolBar("Tool Bar");
 		return toolBar;
 	}
+        /*
+         * Mandatory Feature Method
+         */
+        public JTextArea getTextArea() {
+		return textArea;
+	}
+        /*
+         * Mandatory Feature Method
+         */
+	public JTextComponent getTextComponent() {
+		return textArea;
+	}
 	//Constructor of Notepad
 	public Notepad() {
 		super();
@@ -134,6 +150,17 @@ public class Notepad extends JFrame{
 		//set the title for Notepad and set the size for it.
 		setTitle("Untitled - JAVA Notepad");
 		setSize(800,600);
+
+                //Text Area - Mandatory Feature
+                Container cp = getContentPane();
+		textArea = new JTextArea();
+		textArea.setLineWrap(false);
+		textArea.setWrapStyleWord(false);
+		cp.add(textArea);
+		cp.add(new JScrollPane(textArea));
+                //End of TextArea - Mandatory Feature
+
+
 
 		/**
 		 *setting the default close operation to false and

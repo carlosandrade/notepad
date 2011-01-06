@@ -3,4 +3,6 @@ Projeto de Pesquisa de Linha de Produto de Software - Notepad
 
 Feature checklist
 
-Optional About
+- Mandatory Feature MenuBar (pre-coded by code author)
+- Optional About
+- Mandatory Feature TextRaw
