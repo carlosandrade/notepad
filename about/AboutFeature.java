@@ -19,12 +19,18 @@ import javax.swing.JMenuItem;
  */
 public class AboutFeature {
 
+ Notepad n;
  static public AboutActions aboutActions = new AboutActions();
  static JMenuItem aboutMenuItem = aboutMenuItem = new JMenuItem("About Notepad");
 
+ public AboutFeature(Notepad n)
+ {
+     this.n = n;
+     add();
+ }
     //Original code did not consider counting the amount of sub-menu itens,
     //thus we did not consider adding any other feature to the help submenu.
-    	static public void add() {
+    	 public void add() {
 		JMenu helpMenu   = new JMenu("Help");
 		helpMenu.setMnemonic('h');
 
@@ -39,6 +45,6 @@ public class AboutFeature {
 
                 /* End of About Feature */
 
-		Notepad.getNotepadMenuBar().add(helpMenu);
+		n.getNotepadMenuBar().add(helpMenu);
 	}
 }

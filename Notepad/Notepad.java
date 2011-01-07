@@ -22,6 +22,7 @@ package Notepad;
 
 //import the packages for using the classes in them into the program
 import about.*;
+import input.InputFeature;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -41,15 +42,26 @@ public class Notepad extends JFrame{
         //Create a new textArea - Mandatory Feature
         static private JTextArea textArea;
 
-        static public  JMenuBar getNotepadMenuBar()
+        //Features
+        InputFeature f1;
+        AboutFeature f2 ;
+
+        public  JMenuBar getNotepadMenuBar()
         {
             return Menubar;
         }
 	protected JMenuBar buildMenuBar() {
-
+        
              
                 //Create file menu
 		JMenu fileMenu = buildFileMenu();
+                
+                //Add the Sub-menu of File to the main Menubar
+		Menubar.add(fileMenu);
+
+                /********Input Feature should be put here**********/
+                f1 = new InputFeature(this);
+
 
                 /*
                  * Operations related to the FILE SUB-MENU
@@ -75,9 +87,8 @@ public class Notepad extends JFrame{
 
 		fileMenu.add(exitMenuItem); //, new ImageIcon(this.getClass().getResource("images/exit.gif"))));  -- exit.gif missing
 
-                //Add the Sub-menu of File to the main Menubar
-		Menubar.add(fileMenu);
-
+              
+               
                  /*
                  * Operations related to the EDIT SUB-MENU
                  */
@@ -101,11 +112,9 @@ public class Notepad extends JFrame{
                  * Operations related to the HELP SUB-MENU
                  */
 
-                /*
-                 * Adiciona a Feature About ao Notepad
-                 */
-		AboutFeature.add();
-
+                /********About Feature should be put here**********/
+		
+                  f2 = new AboutFeature(this);
                 
 		return Menubar;
 	}
@@ -161,6 +170,10 @@ public class Notepad extends JFrame{
                 //End of TextArea - Mandatory Feature
 
 
+                JToolBar toolBar = buildToolBar();
+		if (toolBar.getComponentCount() > 0) {
+			getContentPane().add("North", toolBar);
+		}
 
 		/**
 		 *setting the default close operation to false and
@@ -172,6 +185,7 @@ public class Notepad extends JFrame{
 				actions.exit();
 			}
 		});
+
 	}
 	//Main Method
 	public static void main(String[] args){
