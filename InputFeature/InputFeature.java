@@ -66,8 +66,10 @@ public class InputFeature {
 		fileMenu.add(saveMenuItem);
 	
 	}
+    
     protected void buildToolBar()
     {
+
         JToolBar toolBar = n.getNotepadToolBar();
             
                     if (toolBar.getComponentCount() > 0) toolBar.addSeparator();
@@ -95,7 +97,5 @@ public class InputFeature {
                             }
                     });
                     toolBar.add(saveButton);
-
-
     }
 }

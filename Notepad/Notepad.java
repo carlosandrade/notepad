@@ -23,6 +23,7 @@ package Notepad;
 //import the packages for using the classes in them into the program
 import AboutFeature.*;
 import InputFeature.InputFeature;
+import PrintFeature.PrintFeature;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -52,6 +53,7 @@ public class Notepad extends JFrame{
         AboutFeature f2 ;
         SaveAsFeature f3;
         ToolBarFeature f4 = new ToolBarFeature(this);
+        PrintFeature f5;
 
         public JToolBar getNotepadToolBar()
         {
@@ -71,7 +73,7 @@ public class Notepad extends JFrame{
 		Menubar.add(fileMenu);
 
                 
-
+            f5 = new PrintFeature(this);
                 /********Input Feature should be put here**********/
                
 
