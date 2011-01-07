@@ -32,6 +32,15 @@ public class SaveAsFeature {
         inputActions = new InputActions(n);
 
         buildFileMenu();
+        
+    }
+    public SaveAsFeature(Notepad n, boolean hasToolBarIcon)
+    {
+        this.n = n;
+        fileMenu = n.getNotepadMenuBar().getMenu(0);
+        inputActions = new InputActions(n);
+
+        buildFileMenu();
         buildToolBar();
     }
 

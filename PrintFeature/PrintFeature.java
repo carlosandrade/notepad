@@ -31,8 +31,16 @@ public class PrintFeature {
             fileMenu = n.getNotepadMenuBar().getMenu(0);
             printActions = new PrintActions(n);
             buildFileMenu();
-            buildToolBar();
+            
 
+        }
+        public PrintFeature (Notepad n, boolean hasToolBarIcon)
+        {
+            this.n = n;
+            fileMenu = n.getNotepadMenuBar().getMenu(0);
+            printActions = new PrintActions(n);
+            buildFileMenu();
+            buildToolBar();
         }
 
     	protected JMenu buildFileMenu() {
