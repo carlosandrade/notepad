@@ -10,6 +10,7 @@ Feature checklist
 - Optional SaveAs (requires Input as it uses InputActions class, consequently this feature has no Action class)
 - Optional Warn unsaved files (Refer to github commits or to rationale to see how to implement this feature, sligh different way)
 - Optional Toolbar Feature (Refer to the Toolbar commit or rationale to see how other features are added to the toolbar).
+- Optional Print Feature (Encapsulated the same way as Input Feature)
 
 Obs: Output features has turned into Mandatory so application can warn users that text on TextRaw feature has not been saved.
 A different version without this 'extra warn feature' can be seen on the author Ian version. 
