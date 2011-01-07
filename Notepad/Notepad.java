@@ -22,6 +22,7 @@ package Notepad;
 
 //import the packages for using the classes in them into the program
 import AboutFeature.*;
+import FindFeature.FindFeature;
 import InputFeature.InputFeature;
 import PrintFeature.PrintFeature;
 import java.awt.*;
@@ -49,6 +50,9 @@ public class Notepad extends JFrame{
         //Create a toolbar for the Notepad
         static private JToolBar toolBar = new JToolBar("Tool Bar");
 
+        //Create a editMenu for other features (Will be removed from notepad on older versions)
+        private JMenu editMenu =  buildEditMenu();
+
         //Features
         InputFeature f1;
         AboutFeature f2 ;
@@ -56,6 +60,12 @@ public class Notepad extends JFrame{
         ToolBarFeature f4 = new ToolBarFeature(this);
         PrintFeature f5;
         WrapFeature f6;
+        FindFeature f7;
+
+        public JMenu getEditMenu()
+        {
+            return editMenu;
+        }
 
         public JToolBar getNotepadToolBar()
         {
@@ -78,6 +88,8 @@ public class Notepad extends JFrame{
             f5 = new PrintFeature(this);
 
             f6 = new WrapFeature(this);
+
+            f7 = new FindFeature(this);
                 /********Input Feature should be put here**********/
                
 
@@ -113,7 +125,7 @@ public class Notepad extends JFrame{
                  * Operations related to the EDIT SUB-MENU
                  */
 
-		JMenu editMenu = buildEditMenu();
+
 
                 //Add the editMenu to the main MenuBar if it has at least one item
 		if (editMenu.getItemCount() > 0) Menubar.add(editMenu);

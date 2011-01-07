@@ -13,7 +13,10 @@ Feature checklist
 - Optional Print Feature (Encapsulated the same way as Input Feature)
 - Optional Feature Wrap
 - Optional Feature Font
-    Obs: Currently Font is encapsulated on Wrap feature, will modify that later. 
+    Obs: Currently Font is encapsulated on Wrap feature, will modify that later.
+- Optional Feature Find
+- Optional Feature Find Next
+   Obs: This version encapsulated Find and Find Next together, will be split later. 
 
 Obs: Output features has turned into Mandatory so application can warn users that text on TextRaw feature has not been saved.
 A different version without this 'extra warn feature' can be seen on the author Ian version. 
