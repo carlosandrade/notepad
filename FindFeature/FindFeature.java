@@ -31,8 +31,27 @@ public class FindFeature {
             findActions = new FindActions(n);
 
             buildEditMenu();
+            
+        }
+        public FindFeature(Notepad n,boolean hasToolBarIcon)
+        {
+            this.n = n;
+            findActions = new FindActions(n);
+            
+            buildEditMenu();
+            buildToolBar();
+
+        }
+        public FindFeature(Notepad n, boolean hasFindNextFeature, boolean hasToolBarIcon)
+        {
+            this.n = n;
+            findActions = new FindActions(n);
+            
+            buildFindNextButton(buildEditMenu());
             buildToolBar();
         }
+
+        
     	protected JMenu buildEditMenu() {
 		JMenu editMenu   = n.getEditMenu();
 		if (editMenu.getItemCount() > 0) editMenu.addSeparator();
@@ -44,6 +63,13 @@ public class FindFeature {
 			}
 		});
 		editMenu.add(findMenuItem);
+
+                return editMenu;
+        }
+
+        protected void buildFindNextButton(JMenu editMenu)
+        {
+            if (editMenu.getItemCount() > 0) editMenu.addSeparator();
 		JMenuItem findNextMenuItem = new JMenuItem("Find Next");
 		findNextMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, ActionEvent.CTRL_MASK));
 		findNextMenuItem.addActionListener(new ActionListener(){
@@ -52,8 +78,8 @@ public class FindFeature {
 			}
 		});
 		editMenu.add(findNextMenuItem);
-		return editMenu;
-	}
+        }
+              
 	protected JToolBar buildToolBar() {
 		JToolBar toolBar = n.getNotepadToolBar();
 		if (toolBar.getComponentCount() > 0) toolBar.addSeparator();

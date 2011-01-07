@@ -60,7 +60,8 @@ public class Notepad extends JFrame{
         ToolBarFeature f4 = new ToolBarFeature(this);
         PrintFeature f5;
         WrapFeature f6;
-        FindFeature f7;
+        public FindFeature f7;
+        
 
         public JMenu getEditMenu()
         {
@@ -89,7 +90,7 @@ public class Notepad extends JFrame{
 
             f6 = new WrapFeature(this);
 
-            f7 = new FindFeature(this);
+            f7 = new FindFeature(this,true,true);
                 /********Input Feature should be put here**********/
                
 
