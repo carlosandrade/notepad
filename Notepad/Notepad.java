@@ -28,6 +28,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.text.JTextComponent;
+import saveAs.*;
 
 /**
  *A PUBLIC CLASS FOR NOTEPAD.JAVA
@@ -45,6 +46,7 @@ public class Notepad extends JFrame{
         //Features
         InputFeature f1;
         AboutFeature f2 ;
+        SaveAsFeature f3;
 
         public  JMenuBar getNotepadMenuBar()
         {
@@ -60,8 +62,7 @@ public class Notepad extends JFrame{
 		Menubar.add(fileMenu);
 
                 /********Input Feature should be put here**********/
-                f1 = new InputFeature(this);
-
+               
 
                 /*
                  * Operations related to the FILE SUB-MENU
@@ -79,14 +80,16 @@ public class Notepad extends JFrame{
                 //Uses Inner Anonymous class to add the exit action of a Notepad located at the Actions class in this package
 		exitMenuItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ae){
+                            //Instantiate and modify to InputActions to warn unsaved files on top right close icon- requires Input and saveAs
 				actions.exit();
 			}
 		});
 
                 //Add exit menu item to the file sub-menu at MenuBar
-
+      
 		fileMenu.add(exitMenuItem); //, new ImageIcon(this.getClass().getResource("images/exit.gif"))));  -- exit.gif missing
-
+                 f1 = new InputFeature(this);
+                  f3 = new SaveAsFeature(this);
               
                
                  /*
@@ -182,6 +185,7 @@ public class Notepad extends JFrame{
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		addWindowListener(new WindowAdapter(){
 			public void windowClosing(WindowEvent e){
+                                //Instantiate and modify to InputActions to warn unsaved files on top right close icon - requires input and saveAs features
 				actions.exit();
 			}
 		});

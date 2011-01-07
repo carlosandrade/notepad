@@ -29,7 +29,7 @@ public class InputActions {
         
 
 
-	InputActions(Notepad n) {
+	public InputActions(Notepad n) {
             this.n = n;
 		//filter the kind of files, we want only TXT file
 		filter.addExtension("txt");

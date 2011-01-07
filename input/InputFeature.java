@@ -61,13 +61,7 @@ public class InputFeature {
 			}
 		});
 		fileMenu.add(saveMenuItem);
-		JMenuItem saveAsMenuItem = new JMenuItem("Save As");
-		saveAsMenuItem.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent ae){
-				inputActions.saveAs();
-			}
-		});
-		fileMenu.add(saveAsMenuItem);
+	
 		return fileMenu;
 	}
 }
