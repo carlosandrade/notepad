@@ -6,4 +6,7 @@ Feature checklist
 - Mandatory Feature MenuBar (pre-coded by code author)
 - Optional About
 - Mandatory Feature TextRaw
-- Mandatory Input (Has been inserted into code as an optional variable to identify difficulties)
+- Mandatory Input & Output (Has been inserted into code as an optional variable to identify difficulties)
+
+Obs: Output features has turned into Mandatory so application can warn users that text on TextRaw feature has not been saved.
+A different version without this 'extra warn feature' can be seen on the author Ian version. 
