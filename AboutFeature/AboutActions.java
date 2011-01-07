@@ -1,4 +1,4 @@
-package about;
+package AboutFeature;
 
 
 import javax.swing.JOptionPane;

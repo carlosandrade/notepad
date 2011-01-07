@@ -1,4 +1,4 @@
-package about;
+package AboutFeature;
 
 import Notepad.*;
 
@@ -21,7 +21,7 @@ public class AboutFeature {
 
  Notepad n;
  static public AboutActions aboutActions = new AboutActions();
- static JMenuItem aboutMenuItem = aboutMenuItem = new JMenuItem("About Notepad");
+ JMenuItem aboutMenuItem = aboutMenuItem = new JMenuItem("About Notepad", new ImageIcon(this.getClass().getResource("images/about.gif")));
 
  public AboutFeature(Notepad n)
  {

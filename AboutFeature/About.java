@@ -1,4 +1,4 @@
-package about;
+package AboutFeature;
 
 
 //import the packages for using the classes in them into this class
@@ -11,9 +11,9 @@ import javax.swing.*;
 public class About extends JPanel{
 	public About(){
 		//Create a Label & an image icon in it
-		//JLabel label1 = new JLabel(new ImageIcon(this.getClass().getResource("images/java.gif")));
+		JLabel label1 = new JLabel(new ImageIcon(this.getClass().getResource("images/java.gif")));
 		//adding label1 to the JPanel
-		//this.add(label1);
+		this.add(label1);
 		//Create a Label & put a HTML script
 		JLabel label2 = new JLabel("<html><li>JAVA Notepad</li><li><p>Ver# 2.0</li>"
 			+"<li><p>Coded by: Salah Al-Thubaiti</li><li><p>KFUPM, CS</li><li>"

@@ -3,12 +3,13 @@
  * and open the template in the editor.
  */
 
-package saveAs;
+package SaveAsFeature;
 
 import Notepad.Notepad;
-import input.InputActions;
+import InputFeature.InputActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
@@ -35,7 +36,7 @@ public class SaveAsFeature {
     protected JMenu buildFileMenu()
     {
         if (fileMenu.getItemCount() > 0) fileMenu.addSeparator();
-        JMenuItem saveAsMenuItem = new JMenuItem("Save As");
+        JMenuItem saveAsMenuItem = new JMenuItem("Save As", new ImageIcon(this.getClass().getResource("images/saveAs.gif")));
 		saveAsMenuItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ae){
 				inputActions.saveAs();

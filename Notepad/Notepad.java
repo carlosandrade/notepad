@@ -21,14 +21,15 @@ package Notepad;
  */
 
 //import the packages for using the classes in them into the program
-import about.*;
-import input.InputFeature;
+import AboutFeature.*;
+import InputFeature.InputFeature;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.text.JTextComponent;
-import saveAs.*;
+import SaveAsFeature.*;
+import ToolBarFeature.ToolBarFeature;
 
 /**
  *A PUBLIC CLASS FOR NOTEPAD.JAVA
@@ -43,11 +44,19 @@ public class Notepad extends JFrame{
         //Create a new textArea - Mandatory Feature
         static private JTextArea textArea;
 
+        //Create a toolbar for the Notepad
+        static private JToolBar toolBar = new JToolBar("Tool Bar");
+
         //Features
         InputFeature f1;
         AboutFeature f2 ;
         SaveAsFeature f3;
+        ToolBarFeature f4;
 
+        public JToolBar getNotepadToolBar()
+        {
+            return toolBar;
+        }
         public  JMenuBar getNotepadMenuBar()
         {
             return Menubar;
@@ -60,6 +69,8 @@ public class Notepad extends JFrame{
                 
                 //Add the Sub-menu of File to the main Menubar
 		Menubar.add(fileMenu);
+
+                
 
                 /********Input Feature should be put here**********/
                
@@ -139,10 +150,12 @@ public class Notepad extends JFrame{
 		formatMenu.setMnemonic('o');
 		return formatMenu;
 	}
-	protected JToolBar buildToolBar() {
-		JToolBar toolBar = new JToolBar("Tool Bar");
-		return toolBar;
-	}
+	/*
+         * Optional Feature ToolBar
+         * Toolbar is now an atribute, see Rationale to find out why.
+         */
+        
+
         /*
          * Mandatory Feature Method
          */
@@ -158,6 +171,7 @@ public class Notepad extends JFrame{
 	//Constructor of Notepad
 	public Notepad() {
 		super();
+                
                 setJMenuBar(buildMenuBar());
 		//set the title for Notepad and set the size for it.
 		setTitle("Untitled - JAVA Notepad");
@@ -172,11 +186,6 @@ public class Notepad extends JFrame{
 		cp.add(new JScrollPane(textArea));
                 //End of TextArea - Mandatory Feature
 
-
-                JToolBar toolBar = buildToolBar();
-		if (toolBar.getComponentCount() > 0) {
-			getContentPane().add("North", toolBar);
-		}
 
 		/**
 		 *setting the default close operation to false and
