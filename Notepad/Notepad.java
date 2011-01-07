@@ -31,6 +31,7 @@ import javax.swing.event.*;
 import javax.swing.text.JTextComponent;
 import SaveAsFeature.*;
 import ToolBarFeature.ToolBarFeature;
+import WrapFeature.WrapFeature;
 
 /**
  *A PUBLIC CLASS FOR NOTEPAD.JAVA
@@ -54,6 +55,7 @@ public class Notepad extends JFrame{
         SaveAsFeature f3;
         ToolBarFeature f4 = new ToolBarFeature(this);
         PrintFeature f5;
+        WrapFeature f6;
 
         public JToolBar getNotepadToolBar()
         {
@@ -74,6 +76,8 @@ public class Notepad extends JFrame{
 
                 
             f5 = new PrintFeature(this);
+
+            f6 = new WrapFeature(this);
                 /********Input Feature should be put here**********/
                
 
@@ -119,10 +123,13 @@ public class Notepad extends JFrame{
                  */
 
 
-		JMenu formatMenu = buildFormatMenu();
+                /*
+                 * Wrap Feature
+                 */
+		//JMenu formatMenu = buildFormatMenu();
 
                 //Add the formatMenu to the main MenuBar if it has at least one item
-		if (formatMenu.getItemCount() > 0) Menubar.add(formatMenu);
+		//if (formatMenu.getItemCount() > 0) Menubar.add(formatMenu);
 
                  /*
                  * Operations related to the HELP SUB-MENU
@@ -147,11 +154,7 @@ public class Notepad extends JFrame{
 		editMenu.setMnemonic('e');
 		return editMenu;
 	}
-	protected JMenu buildFormatMenu() {
-		JMenu formatMenu = new JMenu("Format");
-		formatMenu.setMnemonic('o');
-		return formatMenu;
-	}
+
 	/*
          * Optional Feature ToolBar
          * Toolbar is now an atribute, see Rationale to find out why.
