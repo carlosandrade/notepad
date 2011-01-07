@@ -51,7 +51,7 @@ public class Notepad extends JFrame{
         InputFeature f1;
         AboutFeature f2 ;
         SaveAsFeature f3;
-        ToolBarFeature f4;
+        ToolBarFeature f4 = new ToolBarFeature(this);
 
         public JToolBar getNotepadToolBar()
         {

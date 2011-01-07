@@ -10,6 +10,7 @@ import InputFeature.InputActions;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
@@ -31,6 +32,7 @@ public class SaveAsFeature {
         inputActions = new InputActions(n);
 
         buildFileMenu();
+        buildToolBar();
     }
 
     protected JMenu buildFileMenu()
@@ -45,5 +47,18 @@ public class SaveAsFeature {
 		fileMenu.add(saveAsMenuItem);
 		return fileMenu;
 
+    }
+
+    protected void buildToolBar()
+    {
+        if (n.getNotepadToolBar().getComponentCount() > 0) n.getNotepadToolBar().addSeparator();
+        		JButton saveAsButton= new JButton(new ImageIcon(this.getClass().getResource("images/saveAs.gif")));
+		saveAsButton.setToolTipText("Save As");
+		saveAsButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				inputActions.saveAs();
+			}
+		});
+		n.getNotepadToolBar().add(saveAsButton);
     }
 }
