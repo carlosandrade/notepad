@@ -32,6 +32,7 @@ import javax.swing.event.*;
 import javax.swing.text.JTextComponent;
 import SaveAsFeature.*;
 import ToolBarFeature.ToolBarFeature;
+import UndoRedoFeature.UndoFeature;
 import WrapFeature.WrapFeature;
 
 /**
@@ -45,7 +46,7 @@ public class Notepad extends JFrame{
         static private JMenuBar Menubar = new JMenuBar();
 
         //Create a new textArea - Mandatory Feature
-        static private JTextArea textArea;
+        static private JTextArea textArea = new JTextArea();
 
         //Create a toolbar for the Notepad
         static private JToolBar toolBar = new JToolBar("Tool Bar");
@@ -61,6 +62,7 @@ public class Notepad extends JFrame{
         PrintFeature f5;
         WrapFeature f6;
         public FindFeature f7;
+        UndoFeature f8;
         
 
         public JMenu getEditMenu()
@@ -91,6 +93,8 @@ public class Notepad extends JFrame{
             f6 = new WrapFeature(this);
 
             f7 = new FindFeature(this,true,true);
+
+            f8 = new UndoFeature(this,true);
                 /********Input Feature should be put here**********/
                
 
@@ -197,7 +201,7 @@ public class Notepad extends JFrame{
 
                 //Text Area - Mandatory Feature
                 Container cp = getContentPane();
-		textArea = new JTextArea();
+		
 		textArea.setLineWrap(false);
 		textArea.setWrapStyleWord(false);
 		cp.add(textArea);
