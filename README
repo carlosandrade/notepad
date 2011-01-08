@@ -14,8 +14,16 @@ Feature checklist
 - Optional Feature Wrap
 - Optional Feature Font
     Obs: Currently Font is encapsulated on Wrap feature, will modify that later.
+
 - Optional Feature Find
 - Optional Feature Find Next
+    Obs: How to use: feature instation with parameters like UndoRedo Feature, refer to FindFeature class inside FindFeature package on its constructors to see available options. Manual will be available later.
+
+- Optional Feature Undo
+- Optional Feature Redo
+    Obs: Undo and Redo Feature are packed on the same folder, see Rationale to find out why.
+        How to use: feature instantiation with parameters (Notepad) {Undo MenuBar} ; (Notepad,true) {UndoMenuBar + UndoToolbar} ; (Notepad,true,true) {UndoMenuBar + UndoToolbar + RedoMenuBar} ; (Notepad,true,true,true) {UndoMenuBar + UndoToolBar+RedoMenuBar+RedoToolBar}
+            Other combinations can easily be added to the code by just creating an overloaded constructor on UndoRedoFeature class.
     
 
 Obs: Output features has turned into Mandatory so application can warn users that text on TextRaw feature has not been saved.

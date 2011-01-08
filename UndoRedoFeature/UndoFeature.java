@@ -32,13 +32,28 @@ public class UndoFeature {
 				//Remember the edit and update the menus
 				undo.addEdit(e.getEdit());
 				undoAction.update();
-				redoAction.update();
+				
 			}
 		});
 
-                buildEditMenu();
+                buildUndoButton();
     }
-    public UndoFeature(Notepad n, boolean hasToolBarIcon)
+    public UndoFeature(Notepad n, boolean hasUndoToolBarIcon)
+    {
+         this.n = n;
+
+		n.getTextComponent().getDocument().addUndoableEditListener(new UndoableEditListener(){
+			public void undoableEditHappened(UndoableEditEvent e){
+				//Remember the edit and update the menus
+				undo.addEdit(e.getEdit());
+				undoAction.update();
+			}
+		});
+
+                buildUndoButton();
+                addUndoToToolBar();
+    }
+    public UndoFeature(Notepad n, boolean hasUndoToolBarIcon, boolean hasRedoFeature)
     {
          this.n = n;
 
@@ -51,22 +66,52 @@ public class UndoFeature {
 			}
 		});
 
-        buildEditMenu();
-        buildToolBar();
+            buildUndoButton();
+            addUndoToToolBar();
+            buildRedoButton();
+    }
+    public UndoFeature(Notepad n, boolean hasUndoToolBarIcon, boolean hasRedoFeature, boolean hasRedoToolBarIcon)
+    {
+         this.n = n;
+
+		n.getTextComponent().getDocument().addUndoableEditListener(new UndoableEditListener(){
+			public void undoableEditHappened(UndoableEditEvent e){
+				//Remember the edit and update the menus
+				undo.addEdit(e.getEdit());
+				undoAction.update();
+				redoAction.update();
+			}
+		});
+
+            buildUndoButton();
+            addUndoToToolBar();
+            buildRedoButton();
+            addRedoToToolBar();
     }
 
 
-	protected JMenu buildEditMenu() {
+	protected void buildUndoButton() {
 		JMenu editMenu   = n.getEditMenu();
 		if (editMenu.getItemCount() > 0) editMenu.addSeparator();
 		editMenu.add(undoAction);
-		editMenu.add(redoAction);
-		return editMenu;
+		
 	}
-	protected JToolBar buildToolBar() {
+        protected void buildRedoButton(){
+            	JMenu editMenu   = n.getEditMenu();
+		if (editMenu.getItemCount() > 0) editMenu.addSeparator();
+		editMenu.add(redoAction);
+		
+        }
+
+	protected JToolBar addUndoToToolBar() {
 		JToolBar toolBar = n.getNotepadToolBar();
 		if (toolBar.getComponentCount() > 0) toolBar.addSeparator();
 		toolBar.add(undoAction);
+		return toolBar;
+	}
+        protected JToolBar addRedoToToolBar() {
+		JToolBar toolBar = n.getNotepadToolBar();
+		if (toolBar.getComponentCount() > 0) toolBar.addSeparator();
 		toolBar.add(redoAction);
 		return toolBar;
 	}

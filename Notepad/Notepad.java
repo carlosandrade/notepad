@@ -94,7 +94,7 @@ public class Notepad extends JFrame{
 
             f7 = new FindFeature(this,true,true);
 
-            f8 = new UndoFeature(this,true);
+            f8 = new UndoFeature(this,true,true,true);
                 /********Input Feature should be put here**********/
                
 
