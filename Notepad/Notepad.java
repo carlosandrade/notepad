@@ -22,8 +22,11 @@ package Notepad;
 
 //import the packages for using the classes in them into the program
 import AboutFeature.*;
+import CopyFeature.CopyFeature;
+import CutFeature.CutFeature;
 import FindFeature.FindFeature;
 import InputFeature.InputFeature;
+import PasteFeature.PasteFeature;
 import PrintFeature.PrintFeature;
 import java.awt.*;
 import java.awt.event.*;
@@ -31,6 +34,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.text.JTextComponent;
 import SaveAsFeature.*;
+import SelectAllFeature.SelectAllFeature;
 import ToolBarFeature.ToolBarFeature;
 import UndoRedoFeature.UndoFeature;
 import WrapFeature.WrapFeature;
@@ -63,6 +67,10 @@ public class Notepad extends JFrame{
         WrapFeature f6;
         public FindFeature f7;
         UndoFeature f8;
+        SelectAllFeature f9;
+        CutFeature f10;
+        CopyFeature f11;
+        PasteFeature f12;
         
 
         public JMenu getEditMenu()
@@ -95,6 +103,14 @@ public class Notepad extends JFrame{
             f7 = new FindFeature(this,true,true);
 
             f8 = new UndoFeature(this,true,true,true);
+
+            f9 = new SelectAllFeature(this);
+
+            f10 = new CutFeature(this,true);
+
+            f11 = new CopyFeature(this,true);
+
+            f12 = new PasteFeature(this,true);
                 /********Input Feature should be put here**********/
                
 

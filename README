@@ -27,4 +27,10 @@ Feature checklist
     
 
 Obs: Output features has turned into Mandatory so application can warn users that text on TextRaw feature has not been saved.
-A different version without this 'extra warn feature' can be seen on the author Ian version. 
+A different version without this 'extra warn feature' can be seen on the author Ian version.
+
+- Optional Feature Cut
+- Optional Feature Copy
+- Optional Feature Paste (has been turned into Optional, see rationale too find out why)
+- Optional Feature SelectAll
+    How to use: Instantiate like Input file, may use aditional parameter (Notepad,true) for Cut,Copy,Paste to be added to ToolBar as well. SelectAll has no toolbar icon and thus does not have on this version as well.
