@@ -22,6 +22,7 @@ package Notepad;
 
 //import the packages for using the classes in them into the program
 import AboutFeature.*;
+import CenterFeature.CenterFeature;
 import CopyFeature.CopyFeature;
 import CutFeature.CutFeature;
 import FindFeature.FindFeature;
@@ -71,6 +72,7 @@ public class Notepad extends JFrame{
         CutFeature f10;
         CopyFeature f11;
         PasteFeature f12;
+        CenterFeature f13;
         
 
         public JMenu getEditMenu()
@@ -111,6 +113,9 @@ public class Notepad extends JFrame{
             f11 = new CopyFeature(this,true);
 
             f12 = new PasteFeature(this,true);
+
+            f13 = new CenterFeature(this);
+            
                 /********Input Feature should be put here**********/
                
 
