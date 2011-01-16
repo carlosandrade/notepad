@@ -36,3 +36,4 @@ A different version without this 'extra warn feature' can be seen on the author 
     How to use: Instantiate like Input file, may use aditional parameter (Notepad,true) for Cut,Copy,Paste to be added to ToolBar as well. SelectAll has no toolbar icon and thus does not have on this version as well.
 
 - Optional Feature Center (has some issue, depending on the screen it appears somewhere else than standard but it is definely not the center :-) (Used original code)
+    How to use: Just instantiate like Input file. 
